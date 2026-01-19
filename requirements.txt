@@ -1,5 +1,8 @@
-datasets 
-smolagents==1.18.0
-langchain-community 
+datasets
+smolagents==1.23.0
+langchain-community
 rank_bm25
-duckduckgo-search
+ddgs
+gradio==5.50.0
+markdownify
+requests

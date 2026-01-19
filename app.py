@@ -1,13 +1,13 @@
 import gradio as gr
 import random
-from smolagents import GradioUI, CodeAgent, HfApiModel
+from smolagents import GradioUI, CodeAgent, InferenceClientModel
 
 # Import our custom tools from their modules
 from tools import DuckDuckGoSearchTool, WeatherInfoTool, HubStatsTool
 from retriever import load_guest_dataset
 
 # Initialize the Hugging Face model
-model = HfApiModel()
+model = InferenceClientModel()
 
 # Initialize the web search tool
 search_tool = DuckDuckGoSearchTool()
@@ -23,7 +23,7 @@ guest_info_tool = load_guest_dataset()
 
 # Create Alfred with all the tools
 alfred = CodeAgent(
-    tools=[guest_info_tool, weather_info_tool, hub_stats_tool, search_tool], 
+    tools=[guest_info_tool, weather_info_tool, hub_stats_tool, search_tool],
     model=model,
     add_base_tools=True,  # Add any additional base tools
     planning_interval=3   # Enable planning every 3 steps
